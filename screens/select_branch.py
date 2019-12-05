@@ -16,8 +16,8 @@ class Select_branch:
         if branch == "cse":
             e1 = "ARTIFICIAL INTELLIGENCE"
             e2 = "CLOUD COMPUTING"
-            e3 = "ADVANCED ALGORITHMS"
-            e4 = "ADVANCED JAVA AND J2EE"
+            e3 = "ADVANCE ALGORITHMS"
+            e4 = "ADVANCE JAVA"
         else:
             e1 = "DOT NET"
             e2 = "EMBEDDED SYSTEMS"
@@ -25,14 +25,14 @@ class Select_branch:
             e4 = "PROGRAMMING LANGUAGES"
 
 
-        self.b1 = Button(self.c,text=e1,bg='light blue',fg='blue',activebackground='black',activeforeground='white',width=20,height=5, font=("Times",15,'bold'),command=lambda:buttonClick())
+        self.b1 = Button(self.c,text=e1,bg='light blue',fg='blue',activebackground='black',activeforeground='white',width=20,height=5, font=("Times",15,'bold'),command=lambda:buttonClick(e1))
         self.b1.place(x=800,y=400,width=300,height=80)
-        self.b1 = Button(self.c,text=e2,bg='light blue',fg='blue',activebackground='black',activeforeground='white',width=20,height=5, font=("Times",15,'bold'),command=lambda:buttonClick())
+        self.b1 = Button(self.c,text=e2,bg='light blue',fg='blue',activebackground='black',activeforeground='white',width=20,height=5, font=("Times",15,'bold'),command=lambda:buttonClick(e2))
         self.b1.place(x=800,y=550,width=300,height=80)
 
-        self.b1 = Button(self.c,text=e3,bg='light blue',fg='blue',activebackground='black',activeforeground='white',width=20,height=5, font=("Times",15,'bold'),command=lambda:buttonClick())
+        self.b1 = Button(self.c,text=e3,bg='light blue',fg='blue',activebackground='black',activeforeground='white',width=20,height=5, font=("Times",15,'bold'),command=lambda:buttonClick(e3))
         self.b1.place(x=800,y=700,width=300,height=80)
-        self.b1 = Button(self.c,text=e4,bg='light blue',fg='blue',activebackground='black',activeforeground='white',width=20,height=5, font=("Times",15,'bold'),command=lambda:buttonClick())
+        self.b1 = Button(self.c,text=e4,bg='light blue',fg='blue',activebackground='black',activeforeground='white',width=20,height=5, font=("Times",15,'bold'),command=lambda:buttonClick(e4))
         self.b1.place(x=800,y=850,width=300,height=80)
 
 
@@ -54,8 +54,8 @@ class Select_branch:
         def back():
             self.root.destroy() 
 
-        def buttonClick():
-            cc = Show_elective()
+        def buttonClick(subject):
+            cc = Show_elective(subject)
         
         self.c.pack()
         self.root.mainloop()

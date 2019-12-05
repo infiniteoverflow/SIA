@@ -1,6 +1,6 @@
 from tkinter import *
 import sqlite3
-
+from screens.analysis import *
 class PlacementDetails:
     def __init__(self,branch):
         self.branch = branch
@@ -42,34 +42,42 @@ class PlacementDetails:
             
         print(companies)
             
-        b = Label(self.c,text="Companies Visited",bg="red",fg='white',width=25,height=2,font=('palatino',30,'bold'))
+        b = Label(self.c,text="Companies Visited",bg="red",fg='white',width=25,height=2,font=('palatino',20,'bold'))
         b.grid(row=0,column=0)
         
-        b = Label(self.c,text="Highest Package",bg="red",fg='white',width=25,height=2,font=('palatino',30,'bold'))
+        b = Label(self.c,text="Highest Package",bg="red",fg='white',width=25,height=2,font=('palatino',20,'bold'))
         b.grid(row=0,column=1)
         
-        b = Label(self.c,text="Total Appeared",bg="red",fg='white',width=25,height=2,font=('palatino',30,'bold'))
+        b = Label(self.c,text="Total Appeared",bg="red",fg='white',width=25,height=2,font=('palatino',20,'bold'))
         b.grid(row=0,column=2)
         
-        b = Label(self.c,text="Total Placed",bg="red",fg='white',width=25,height=2,font=('palatino',30,'bold'))
+        b = Label(self.c,text="Total Placed",bg="red",fg='white',width=25,height=2,font=('palatino',20,'bold'))
         b.grid(row=0,column=3)
             
         for i in range(1,len(companies)+1): #Rows
-            b = Label(self.c,text=companies[i-1],bg="white",width=25,height=2,font=('palatino',30,'bold'))
+            b = Label(self.c,text=companies[i-1],bg="white",width=25,height=2,font=('palatino',20,'bold'))
             b.grid(row=i, column=0)
             
         for i in range(1,len(highest_package)+1): #Rows
-            b = Label(self.c,text=highest_package[i-1],bg="white",width=25,height=2,font=('palatino',30,'bold'))
+            b = Label(self.c,text=highest_package[i-1],bg="white",width=25,height=2,font=('palatino',20,'bold'))
             b.grid(row=i, column=1)
             
         for i in range(1,len(total_appeared)+1): #Rows
-            b = Label(self.c,text=total_appeared[i-1],bg="white",width=25,height=2,font=('palatino',30,'bold'))
+            b = Label(self.c,text=total_appeared[i-1],bg="white",width=25,height=2,font=('palatino',20,'bold'))
             b.grid(row=i, column=2)
             
         for i in range(1,len(total_placed)+1): #Rows
-            b = Label(self.c,text=total_placed[i-1],bg="white",width=25,height=2,font=('palatino',30,'bold'))
+            b = Label(self.c,text=total_placed[i-1],bg="white",width=25,height=2,font=('palatino',20,'bold'))
             b.grid(row=i, column=3)
+
+        self.b1 = Button(self.c,text='ANALYSIS',bg='light blue',fg='blue',activebackground='black',activeforeground='white',width=13,height=3, font=("Times",20,'bold'),command=lambda:analysis(branch))
+        self.b1.grid(row=i+1,column=3)
         
+
+
+        def analysis(branch):
+            a = Analysis(branch)
+
         self.c.pack()
         
         

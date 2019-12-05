@@ -4,14 +4,14 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import pandas as pd
 
 class CvsTa:
-    def __init__(self):
+    def __init__(self,branch):
         self.root = tk.Tk()
         self.root.geometry("700x700")
-        self.root.title("Placement Details for {}".format('IEM'))
+        self.root.title("Placement Details for {}".format(branch))
 
         df = pd.read_csv('./databases/placement.csv')
 
-        a_df = df[df['BRANCH']=='ISE']
+        a_df = df[df['BRANCH']== branch]
 
 
         total_app = a_df['TOTAL_APPEARED']
@@ -22,7 +22,7 @@ class CvsTa:
         df1 = a_df[['COMPANY_NAME','TOTAL_APPEARED','TOTAL_PLACED']] \
             .groupby('COMPANY_NAME').sum()
         
-        figure1 = plt.Figure(figsize=(7,7), dpi=70)
+        figure1 = plt.Figure(figsize=(30,7), dpi=70)
         ax1 = figure1.add_subplot(111)
         bar1 = FigureCanvasTkAgg(figure1, self.root)
 
@@ -32,4 +32,4 @@ class CvsTa:
 
         self.root.mainloop()
 
-a = CvsTa()
+#a = CvsTa()
